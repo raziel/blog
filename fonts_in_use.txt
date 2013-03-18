@@ -1,0 +1,30 @@
+Fonts actively used in this project
+-----------------------------------
+
+
+Font name       :   Roboto
+Font provider   :   google
+Font weight     :   400
+Font style      :   normal
+
+******************************************************************************
+
+Font name       :   Raleway
+Font provider   :   google
+Font weight     :   100
+Font style      :   normal
+
+******************************************************************************
+
+Font name       :   Open Sans
+Font provider   :   google
+Font weight     :   400
+Font style      :   normal
+
+******************************************************************************
+
+
+
+
+
+Created by Typecast on 2013/03/18.

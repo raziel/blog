@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <!-- // Change these to better suit your project -->
+        <title>Glass - Typecast</title>
+        <meta name="description" content="Glass - Typecast">
+        <meta name="keywords" content="Glass, Typecast">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+        <meta name="generator" content="Lovingly created using Typecast (http://typecast.com) on 2013/03/18">
+
+        <!-- // CSS Reset – http://meyerweb.com/eric/tools/css/reset/ -->
+        <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+
+        <!-- // Option one: Live updating CSS -->
+        <!-- // This embed code adds your fonts and live Typecast CSS to the page -->
+        <script type="text/javascript" src="http://typecast.com/project_css/raziel-alvarez/62484c3dedbd2.js"></script>
+
+        <!-- // Option two: Bundled CSS -->
+        <!-- // To  use the fonts in your embed code without your hosted CSS, delete the snippet above and uncomment this block
+        <script type="text/javascript">var __tcaExcludeHostedCss=true;</script>
+        <script type="text/javascript" src="http://typecast.com/project_css/raziel-alvarez/62484c3dedbd2.js"></script>        
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+        
+        -->
+    </head>
+    <body>
+
+		<div style="margin: 0 auto;width: 480px;">
+			<h1>Glass</h1>
+
+			<h3>Motivation</h3>
+
+			<p>The following document briefly describes my understanding of what Project Glass is, the challenge from the UX point of view, and what I believe a good UI for Glass should be based on, as well as to mention a number of specific solutions that I think exemplify that foundation.</p>
+
+			<h3>What's Glass?</h3>
+
+			<p>Glass is an attempt to augment our reality in a natural way, through a computing device that, though artificial, conforms to a familiar form: glasses.<br style="" /></p>
+
+			<h3>Challenge</h3>
+
+			<p>I think one of the design goals of Glass is to be there without being perceived as such by the user, either by minimizing artificial interactions with it, or at least by making them really easy to get used to. Just as we learn to turn to our wrist and read our wristwatch, the Glass interface should become familiar and available, yet unobtrusive.</p>
+
+			<h3>A Good User Interface</h3>
+
+			<p>Creating a good interface involves making many decisions (several of them not obvious) that to the user result in almost intuitive results. However, making such decisions, and building these intuitive experiences, does require a good data foundation.</p>
+
+			<p>I think a successful UX is best served when it draws from the context, tailoring the experience according to the user's historical data, and provides a simple yet expressive way to convey commands and input data. Ideally, it also reduces/eliminates the dependency on interactions with the user.</p>
+
+			<h5>Drawing from context</h5>
+
+			<p>A great thing about Glass is that it can provide, through its multiple sensors, a lot of data about the user and his environment, from which it makes informed responsive decisions. Some examples:</p>
+
+			<p class="idea">Movement. An accelerator can tell us whether the user is moving, how fast, in which direction, etc.... We can use this data to feed other applications, and more generally, to tailor the presentation of the information. For example, if the user is not moving, perhaps we can be more "in his face".</p>
+
+			<p class="idea">Environment Sound. The microphone can be useful not only to enter commands, but also to help determine how to present information to the user. For example, in a very loud environment it makes little sense to present a result through sound.</p>
+
+			<p class="idea">User identification. Implicit information can be obtained from a user's voice. The most obvious is "who is talking?" This can serve as an authentication and authorization mechanism that requires no extra interaction from the user.</p>
+
+			<p class="technote">Tech Note. User identification through voice is currently being researched at the Google Ears project.<br /></p>
+
+			<p class="idea">&nbsp;Luminosity. Since the glass display is the main point through which we present information to the user, it's very important to maximize its legibility. For example, adjusting to lighting conditions is a necessity.</p>
+
+			<p class="idea">Eye position. If we had a camera pointing to the eye we could calculate its position, focus, etc., to estimate what the user might be looking at. A "simple" use of this data could be to help us adjust the display size, position, transparency, etc... depending on whether the user is looking at the display or not.</p>
+
+			<h5>User's history</h5>
+
+			<p>Most Glass users, if not all, would be tied to a Google account. This provides a plethora of existing data, which aside from being useful in new applications, can also be helpful in tailoring the Glass UI by allowing us to extrapolate default settings/preferences while maintaining a seamless transition between Google-connected devices.</p>
+
+			<p>Overall this information can help create familiarity sooner, hopefully blurring the shock, or at least reducing the awareness of Glass being an entirely new form factor (at least for a computing device).</p>
+
+			<h5>Commands and User input</h5>
+
+			<p>&nbsp;Just like an important characteristic of data presentation is to provide a high density of readable information to the user, I believe an input system should also provide good data density, express clear intent, and be easy to learn (if at all necessary).</p>
+
+			<p>A good way of achieving this is through a gesture language captured through the Glass video camera. We already come wired with a set of instinctive gestures, as well as many more learned through experience, which are simple, succinct, (hopefully) clear to identify (if properly combined with contextual and historical information), provide a good amount of data, and are not awkward to perform.</p>
+
+			<p class="idea">An example is a gesture that allows the user to select text in his field of view.</p>
+
+			<p class="idea">The "Ok Glass ..." voice command can activate a specific gesture lookout mode, after which image analysis takes place to detect the gesture through all its stages. It finishes by feeding the extracted information (the text) to the particular application (a translation application, for example), which in turn provides the response to the user (the translated text).</p>
+
+			<p class="technote">Tech Note. The gesture recognition can be done through Haar-like feature detection. The gesture flow can be tracked through optical flow analysis (Lucas-Kanade method for example). Text selection can be refined by adjusting the selection area based on its (Canny) edge homogeneity. For the OCR we can leverage Google's OCR service.</p>
+
+			<h5>Proactive user interface</h5>
+
+			<p>I believe an important characteristic of an unobtrusive UI is that it reduces the number of required direct interactions with the user in order to carry on with the task at hand. One way of achieving this is by successfully predicting what the user might need and/or by at least having data readily available for the user to act upon.</p>
+
+			<p>We've already made great strides at Google to analyze and predict users' needs; Google Now is a clear example. Oversimplified privacy restrictions aside, it would be ideal if we could act (either directly or by user request) upon recently logged data about the user.</p>
+
+			<p>This would allow for applications to proactively take action for the user, just requiring him to either accept, acknowledge, authorize an action, or at least reduce the number of interactions to a minimum in order to carry on a task.</p>
+
+			<p class="idea">For example, allow a running application to activate and log data without the user having to start it, pause it, resume it, etc.</p>
+
+			<p>This would also allow the user to take action on "the past" and query about it, thus avoiding more missed "magic moments."</p>
+
+			<p class="idea">Think of a user being able to retrieve the video capture for the last 20 seconds, take still pictures from it, and query any application based on that data. Simple questions that we currently expect Glass to answer about the present but that can be asked as well in its past form: "what song was that?", "who was that person?", etc...&nbsp;</p>
+
+			<h3>Conclusion</h3>
+
+			<p>Glass is an exciting opportunity to create a new computing device format, as well as a new language to interact with it. The project poses great and very interesting challenges, as well as the potential to affect many people through a more humane interface.</p>
+
+			<p>Whereas we all ponder about its long term success based mainly on its usefulness, I believe what will be immediately challenged is its usability; moreover, I think that it is only through a good foundation in the latter that we can make strides in the former.</p>
+		</div>
+
+
+
+    </body>
+</html>
